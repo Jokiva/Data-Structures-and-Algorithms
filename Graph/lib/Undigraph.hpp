@@ -121,5 +121,7 @@ private:
 	struct Vertix {
 		size_t index;
 		vector<size_t> adj_list;
+
+
 	};
 };
