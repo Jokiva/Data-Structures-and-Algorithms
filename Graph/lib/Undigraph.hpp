@@ -20,12 +20,13 @@ public:
 };
 
 
-// adjacent list representation of an undigraph
-class Undigraph_List: public Graph{
+// adjacent list representation of an undigraph 
+// in a graph object itself
+class Undigraph_List: public Undigraph{
 public:
 	// default constructor
 	Undigraph_List(size_t vernum, istream& input=cin)
-		: Graph{ vernum } {
+		: Undigraph{ vernum } {
 		init(input);
 	}
 
@@ -97,4 +98,19 @@ private:
 	adj_list_graph the_graph;
 	// replaced in Graph base class
 	// const size_t vertix_num;
+};
+
+
+// adjacent list representation of an undigraph 
+// the sdjacent list is stored in a vertix
+class Undigraph_Vertix : public Undigraph {
+public:
+	Undigraph_Vertix(size_t vernum, istream& istream)
+		: Undigraph{ vernum } {
+		
+	}
+
+	~Undigraph_Vertix() {
+		
+	}
 };
