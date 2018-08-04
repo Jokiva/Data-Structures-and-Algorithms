@@ -78,20 +78,20 @@ public:
 		return true;
 	}
 
-	vector<size_t> get_indegree() const {
-		vector<size_t> indegree(vertix_num);
+	vector<size_t> get_degree() const {
+		vector<size_t> degree(vertix_num);
 
 		// traverse the adjacent list based graph 
 		// and compute the indegrees
 		for (const auto& curr_list : the_graph)
 			for (const auto& index : curr_list)
-				++indegree[index];
+				++degree[index];
 
-		return indegree;
+		return degree;
 	}
 
 	void top_sort() {
-		vector<size_t> indegree = get_indegree();
+		vector<size_t> indegree = get_degree();
 
 	}
 

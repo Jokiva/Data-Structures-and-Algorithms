@@ -7,8 +7,8 @@ int main() {
 		typedef Undigraph_List Undigraph;
 		Undigraph g{ 4 };
 
-		vector<size_t> indegree = g.get_indegree();
-		for (auto x : indegree)
+		vector<size_t> degree = g.get_degree();
+		for (auto x : degree)
 			cout << x << " ";
 		cout << endl;
 	}
