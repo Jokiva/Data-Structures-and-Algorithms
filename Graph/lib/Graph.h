@@ -15,7 +15,7 @@ public:
 
 	}
 
-	virtual bool init(size_t vernum, istream& input) = 0;
+	virtual bool init(istream& input) = 0;
 	virtual bool clear() = 0;
 
 protected:
