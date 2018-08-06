@@ -108,7 +108,7 @@ private:
 // the sdjacent list is stored in a vertix
 class Undigraph_Vertix : public Undigraph {
 public:
-	Undigraph_Vertix(size_t vernum, istream& input)
+	Undigraph_Vertix(size_t vernum, istream& input=cin)
 		: Undigraph{ vernum } {
 		init(input);
 	}
@@ -144,8 +144,18 @@ public:
 			}
 
 			curr_vertix = new Vertix(i, the_adj_list);
-		 }
+		}
+		return true;
 	}
+
+	bool clear() {
+		for (auto x : vertices) {
+			delete x;
+		}
+
+		return true;
+	}
+
 private:
 	struct Vertix {
 		size_t index;
