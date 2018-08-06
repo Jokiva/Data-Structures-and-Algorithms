@@ -108,20 +108,55 @@ private:
 // the sdjacent list is stored in a vertix
 class Undigraph_Vertix : public Undigraph {
 public:
-	Undigraph_Vertix(size_t vernum, istream& istream)
+	Undigraph_Vertix(size_t vernum, istream& input)
 		: Undigraph{ vernum } {
-		
+		init(input);
 	}
 
 	~Undigraph_Vertix() {
 		
 	}
 
+	bool init(istream& input) {
+		// change the size of vector storing the vertix info
+		vertices.resize(vertix_num);
+
+		for (size_t i = 0; i < vertix_num; ++i) {
+			auto& curr_vertix = vertices[i];
+			
+			char buffer;
+			size_t cnt = 0;
+			list<size_t> the_adj_list;
+
+			while (true) {
+				if (cnt >= vertix_num)
+					throw logic_error("exceeds the limit of edges of a single vertix");
+				
+
+				cin >> buffer;
+				if (isdigit(buffer)) {
+					the_adj_list.push_back((size_t)buffer - 48);
+					++cnt;
+				}
+
+				else
+					break;
+			}
+
+			curr_vertix = new Vertix(i, the_adj_list);
+		 }
+	}
 private:
 	struct Vertix {
 		size_t index;
-		vector<size_t> adj_list;
+		list<size_t> adj_list;
 
-
+		Vertix(size_t the_index, list<size_t>& the_adj_list) {
+			index = the_index;
+			adj_list = the_adj_list;
+		}
 	};
+
+	// stores the vertix info
+	vector<Vertix*> vertices;
 };
