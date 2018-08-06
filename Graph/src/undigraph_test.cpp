@@ -14,10 +14,10 @@ int main() {
 			cout << x << " ";
 		cout << endl;
 
-		// test implementation one
+		// test implementation two
 		// store the adjacent list in each vertix
 		Undigraph_Vertix g2{ 4 };
-		vector<size_t> degree2 = g.get_degree();
+		vector<size_t> degree2 = g2.get_degree();
 		for (auto x : degree2)
 			cout << x << " ";
 		cout << endl;

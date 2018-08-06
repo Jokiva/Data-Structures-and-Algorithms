@@ -90,11 +90,6 @@ public:
 		return degree;
 	}
 
-	void top_sort() {
-		vector<size_t> indegree = get_degree();
-
-	}
-
 private:
 	typedef vector<list<int>> adj_list_graph;
 
@@ -154,6 +149,17 @@ public:
 		}
 
 		return true;
+	}
+
+	vector<size_t> get_degree() const {
+		// create the container to hold degres
+		vector<size_t> degrees(vertix_num);
+
+		for (size_t i = 0; i < vertix_num; ++i) {
+			degrees[i] = vertices[i]->adj_list.size();
+		}
+
+		return degrees;
 	}
 
 private:
