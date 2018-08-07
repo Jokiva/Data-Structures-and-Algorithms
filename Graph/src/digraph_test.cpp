@@ -25,7 +25,7 @@ int main() {
 			cout << x << endl;
 		cout << endl;
 
-		vector<size_t> length = g->shortest_path(0);
+		vector<int> length = g->shortest_path_length(0);
 		for (auto x : length)
 			cout << x << endl;
 		cout << endl;

@@ -35,7 +35,7 @@ public:
 	virtual vector<size_t> top_sort() const = 0;
 
 	// find the shortest path from a vertix to each vertix
-	virtual vector<size_t> shortest_path(size_t start) const = 0;
+	virtual vector<int> shortest_path_length(size_t start) const = 0;
 
 	// find the shortest path from a vertix to a specific one
 	// virtual vector<size_t> shortest_path(size_t start, size_t end) const = 0;
@@ -150,26 +150,31 @@ public:
 		return sort_result;
 	}
 
-	vector<size_t> shortest_path(size_t start) const {
-		// path
-		list<size_t> path;
+	vector<int> shortest_path_length(size_t start) const {
+		// container for path from start to each vertix
+		// list<size_t> path;
 
-		// length of path
-		vector<size_t> length(vertix_num);
+		// container for length of path from start to each vertix
+		vector<int> length(vertix_num);
+		// initialization step. length from start to start is set to zero
+		// others are set to -1 to denote that there are no path
 		for (size_t i = 0; i < vertix_num; ++i) {
 			if (i == start) {
 				length[i] = 0;
 			}
 
 			else {
-				length[i] = UINT_MAX;
+				length[i] = -1;
 			}
 		}
+		// a set will remember if a vertix is visited
 		set<size_t> visited;
 		
-		// length of path or depth of layer
+		// depth first search, length of path or depth of layer
+		// the worst case is that the graph degrades to a link
+		// when the depth is the number of vertices
 		for (size_t i = 0; i < vertix_num; ++i) {
-			// the vertix index
+			// traverse the graph, j is the vertic index for each run
 			for (size_t j = 0; j < vertix_num; ++j) {
 				// if vertix is not visited and in current layer
 				if (visited.count(j) == 0 && length[j] == i) {
@@ -178,6 +183,8 @@ public:
 					// travers the adjacent list of current unvisited vertix
 					auto& adj = the_graph[j];
 					for (auto x : adj) {
+						// if a vertix in the adjacent list is not visited
+						// set the length of path and mark as visited
 						if (visited.count(x) == 0) {
 							length[x] = i + 1;
 							visited.insert(x);
