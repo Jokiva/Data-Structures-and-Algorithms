@@ -38,7 +38,7 @@ public:
 	virtual vector<int> shortest_path_length(size_t start) const = 0;
 
 	// find the shortest path from a vertix to a specific one
-	// virtual vector<size_t> shortest_path(size_t start, size_t end) const = 0;
+	// virtual vector<size_t> shortest_path_length(size_t start, size_t end) const = 0;
 };
 
 
@@ -206,21 +206,4 @@ private:
 	vector<size_t>::iterator find_zero(vector<size_t>& indegree) {
 		return find(indegree.begin(), indegree.end(), 0);
 	}
-};
-
-
-class Network_List : public Digraph_List {
-public:
-	Network_List(size_t vernum, istream& input)
-		: Digraph_List(vernum, input) {
-		;
-	}
-
-private:
-	struct Adj_Vertix {
-		size_t index;
-		int weight;
-	};
-
-	vector<Adj_Vertix> the_network;
 };
