@@ -1,4 +1,4 @@
-#include "Digraph.hpp"
+#include "../lib/Digraph.hpp"
 #include <iostream>
 #include <vector>
 using namespace std;
