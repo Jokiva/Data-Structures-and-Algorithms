@@ -170,7 +170,7 @@ public:
 		// a set will remember if a vertix is visited
 		set<size_t> visited;
 		
-		// depth first search, length of path or depth of layer
+		// bredth first search, length of path or depth of layer
 		// the worst case is that the graph degrades to a link
 		// when the depth is the number of vertices
 		for (size_t i = 0; i < vertix_num; ++i) {
@@ -196,9 +196,6 @@ public:
 
 		return length;
 	}
-
-protected:
-	// const size_t vertix_num;
 
 private:
 	typedef vector<list<size_t>> adj_list_graph;
