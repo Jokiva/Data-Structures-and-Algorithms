@@ -17,6 +17,19 @@ public:
 };
 
 
+class Path {
+private:
+	size_t next;
+	int weight;
+
+public:
+	Path(size_t n, int w)
+		: next{ n }, weight{ w } {
+
+	}
+};
+
+
 class Vertix {
 private:
 	size_t index;
@@ -28,19 +41,6 @@ public:
 		for (size_t i = 0; i < nodes.size(); ++i) {
 			adj_list.push_back(new Path(nodes[i], w[i]));
 		}
-	}
-};
-
-
-class Path {
-private:
-	size_t next;
-	int weight;
-
-public:
-	Path(size_t n, int w)
-		: next{ n }, weight{ w } {
-
 	}
 };
 
