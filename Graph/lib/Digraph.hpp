@@ -25,11 +25,13 @@ public:
 	virtual vector<size_t> get_indegree() const = 0;
 
 	// get the indegree of a specific vertix
+	virtual size_t get_indegree(size_t end) const = 0;
 
 	// get the outdegree of each vertix
 	virtual vector<size_t> get_outdegree() const = 0;
 
 	// get the outdegree of a specific vertix
+	virtual size_t get_outdegree(size_t start) const = 0;
 
 	// get a topological sorting result
 	virtual vector<size_t> top_sort() const = 0;
@@ -102,6 +104,10 @@ public:
 		return indegree;
 	}
 
+	size_t get_indegree(size_t end) const {
+		return get_indegree()[end];
+	}
+
 	vector<size_t> get_outdegree() const {
 		// first create the container
 		vector<size_t> outdegree(vertix_num);
@@ -112,6 +118,10 @@ public:
 			outdegree[i] = the_graph[i].size();
 
 		return outdegree;
+	}
+
+	size_t get_outdegree(size_t start) const {
+		return the_graph[start].size();
 	}
 
 	vector<size_t> top_sort() const {
