@@ -105,8 +105,8 @@ public:
 	vector<size_t> get_indegree() const {
 		vector<size_t> indegrees(vertix_num);
 
-		for (const Vertix* curr_vertix : vertices) {
-			for (const Path* curr_path : curr_vertix->adj_list) {
+		for (const auto curr_vertix : vertices) {
+			for (const auto curr_path : curr_vertix->adj_list) {
 				++indegrees[curr_path->next];
 			}
 		}
