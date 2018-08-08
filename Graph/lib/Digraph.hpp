@@ -65,7 +65,7 @@ public:
 				if (cnt >= vertix_num)
 					throw logic_error("exceeds the limit of edges of a single vertix");
 
-				cin >> buffer;
+				input >> buffer;
 				if (isdigit(buffer)) {
 					if ((size_t)buffer - 48 >= vertix_num)
 						throw out_of_range("vertix index out of range");

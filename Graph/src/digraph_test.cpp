@@ -1,11 +1,13 @@
 #include "../lib/Digraph.hpp"
 #include <iostream>
+#include <fstream>
 #include <vector>
 using namespace std;
 
 
 int main() {
-	Digraph* g = new Digraph_List{ 4 };
+	ifstream input("../test/digraph_test.txt");
+	Digraph* g = new Digraph_List{ 4 , input};
 	try {
 		
 		vector<size_t> degree;
