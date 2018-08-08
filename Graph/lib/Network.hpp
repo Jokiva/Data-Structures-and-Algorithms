@@ -110,6 +110,8 @@ public:
 				++indegrees[curr_path->next];
 			}
 		}
+
+		return indegrees;
 	}
 
 	size_t get_indegree(size_t end) const {
@@ -122,6 +124,8 @@ public:
 		for (size_t i = 0; i < vertix_num; ++i) {
 			outdegrees[i] = vertices[i]->adj_list.size();
 		}
+
+		return outdegrees;
 	}
 
 	size_t get_outdegree(size_t start) const {
