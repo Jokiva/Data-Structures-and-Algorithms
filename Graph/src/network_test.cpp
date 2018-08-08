@@ -9,6 +9,7 @@ int main() {
 	catch (const std::exception& exp) {
 		cout << exp.what() << endl;
 	}
+
 	system("pause");
 	return 0;
 }

@@ -17,10 +17,12 @@ public:
 };
 
 
-struct Vertix {
+class Vertix {
+private:
 	size_t index;
 	list<Path*> adj_list;
 
+public:
 	Vertix(size_t i, const vector<size_t>& nodes, const vector<int>& w)
 		: index{ i } {
 		for (size_t i = 0; i < nodes.size(); ++i) {
@@ -30,10 +32,12 @@ struct Vertix {
 };
 
 
-struct Path {
+class Path {
+private:
 	size_t next;
 	int weight;
 
+public:
 	Path(size_t n, int w)
 		: next{ n }, weight{ w } {
 
