@@ -15,12 +15,12 @@ int main() {
 		degree = g->get_indegree();
 		for (auto x : degree)
 			cout << x << endl;
-		cout << endl;
+		cout << endl << g->get_indegree(3) << endl << endl;
 
 		degree = g->get_outdegree();
 		for (auto x : degree)
 			cout << x << endl;
-		cout << endl;
+		cout << endl << g->get_outdegree(3) << endl << endl;
 
 		vector<size_t> sort_result = g->top_sort();
 		for (auto x : sort_result)
